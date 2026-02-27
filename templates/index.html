@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataRefine</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 100%; }
+        h1 { color: #2d3436; margin-bottom: 10px; }
+        .user-name { color: #6c5ce7; font-weight: bold; }
+        .btn { display: block; width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; color: white; transition: 0.3s; }
+        .btn-profile { background-color: #6c5ce7; }
+        .btn-clean { background-color: #00b894; }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .alert { background: #e1f5fe; color: #01579b; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-size: 14px; }
+        input[type="file"] { margin: 20px 0; border: 1px dashed #ccc; padding: 10px; width: 90%; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>DataRefine</h1>
+        <p>Logged in as: <span style="color: #6c5ce7; font-weight: bold;">{{ username if username else 'Guest' }}</span></p>
+
+        {% if msg %}
+            <div class="alert">
+                {{ msg }}
+                {% if link %}<br><a href="{{ link }}" target="_blank">View Visual Report</a>{% endif %}
+            </div>
+        {% endif %}
+
+        <form action="/process" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv" required>
+            <button type="submit" name="action" value="profile" class="btn btn-profile">Upload & Profile</button>
+            <button type="submit" name="action" value="clean" class="btn btn-clean">Upload & Auto-Clean</button>
+        </form>
+
+        <br>
+        <a href="/logout" style="color: #ff7675; text-decoration: none; font-size: 13px;">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+#DataRefine
 DataRefine 📊 is an automated data cleaning and diagnostic web application built with Flask and Python. It simplifies the "messy" stage of data science by handling null values and duplicates while generating a beautiful, high-density visualization report of your entire dataset.
 
 🌟 Key Features

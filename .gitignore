@@ -1,4 +1,7 @@
-../client_secret.json
+client_secret.json
+.venv/
 .idea/
-DataRefine-Flask-App/client_secret.json
-.idea/
+__pycache__/
+*.pyc
+uploads/
+static/reports/*.html

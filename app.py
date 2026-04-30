@@ -134,7 +134,7 @@ def process():
     if action == 'profile':
 
         filename = secure_filename(file.filename)
-        report_filename = f"report_{session['google_id']}.html"  \
+        report_filename = f"report_{session['google_id']}.html"
         report_path = os.path.join(REPORT_FOLDER, report_filename)
 
 
